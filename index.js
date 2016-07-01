@@ -1,33 +1,23 @@
 var self = require("sdk/self");
-
-// a dummy function, to show how tests work.
-// to see how to test this function, look at test/test-index.js
-function dummy(text, callback) {
-    callback(text);
-}
-
-exports.dummy = dummy;
-
-
 var buttons = require('sdk/ui/button/action');
 var tabs = require('sdk/tabs');
+var data = self.data;
 
 var button = buttons.ActionButton({
-    id: "mozilla-link",
-    label: "Visit Mozilla",
+    id: "QZone-link",
+    label: "Visit QZone",
     icon: {
         16: "./bug-16.png",
         32: "./bug-32.png",
         64: "./bug-64.png"
     },
-    onClick: showPanel
+    onClick: openLink
 });
 
 function openLink(state) {
-    tabs.open("http://www.mozilla.org");
+    tabs.open("http://user.qzone.qq.com/347348453");
 }
 
-var data = self.data;
 
 var text_entry = require("sdk/panel").Panel({
     contentURL: data.url("text-entry.html"),

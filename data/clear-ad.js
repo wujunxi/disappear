@@ -78,18 +78,17 @@ $(function () {
     selectList.push({id:"qqzone-index",selectors:ar});
     selectList.push({id:"qqzone-infocenter",selectors:ar});
 
-    main();
-
-    var main = function () {
+    function main() {
         console.log("visiting:" + window.location.href);
         var page = pageList.findByUrl(window.location.host,window.location.pathname);
         if(page){
-            var selectors = findInList(selectList,"id",page.id);
-            if(selectors){
-                doClear(selectors);
+            var item = findInList(selectList,"id",page.id);
+            if(item){
+                doClear(item.selectors);
             }
         }
-    };
+    }
+    main();
 
     function doClear(selectors){
         hideElem(selectors);
